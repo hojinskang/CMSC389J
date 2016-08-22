@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>CMSC389J P2</title>
+  <style>
+  h1 {
+    font-size: 4em;
+    line-height: 0em;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  fieldset {
+    background-color: #fff1cc;
+    border: 0em;
+  }
+  label {
+    font-weight: bold;
+  }
+  img {
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+  }
+  </style>
+</head>
+
+<body onload = "main()">
+  <script>
+  function main() {
+    /* Next statement allow us to access the button from JavaScript */
+    var slide = document.getElementById("slideshow");
+    var ran = document.getElementById("random");
+
+    var prev = document.getElementById("previous");
+    var nxt = document.getElementById("next");
+
+    var autoSlide = document.getElementById("autoslideshow");
+    var autoRan = document.getElementById("autorandom");
+    var stopSlide = document.getElementById("stopauto");
+
+    var res = document.getElementById("rest");
+
+    imageArry = new Array();
+    slide.onclick = getArrayPhotosNames;
+    ran.onclick = function() {
+      getArrayPhotosNames();
+      imageArry = randomize(imageArry);
+    };
+
+    index = 0;
+
+    imageElement = document.getElementById("myImage");
+    imageName = imageElement.getAttribute("src");
+
+    prev.onclick = getPrev;
+    nxt.onclick = getNext;
+
+    myImage.onclick = getNext;
+
+    intervalInMilliseconds = 1000;
+    var intID = 0;
+
+    autoSlide.onclick = function() {
+      if (getArrayPhotosNames()) {
+        intID = startSlide();
+      }
+    };
+    autoRan.onclick = function() {
+      if (getArrayPhotosNames()) {
+        imageArry = randomize(imageArry);
+        intID = startRan();
+      }
+    };
+    stopSlide.onclick = function() {
+      stopShow(intID);
+    };
+
+    res.onclick = resetAll;
+  }
+
+  function getArrayPhotosNames() {
+    var direcName = document.getElementById("directory").value;
+    var commonName = document.getElementById("name").value;
+    var startImage = document.getElementById("start").value;
+    var endImage = document.getElementById("end").value;
+    var startNum = parseInt(startImage);
+    var endNum = parseInt(endImage);
+    if (endNum < startNum) {
+      alert("Invalid Numbers");
+      return false;
+    } else {
+      imageArry = [];
+      var imagePath;
+      while (startNum <= endNum) {
+        imagePath = direcName + commonName + startNum.toString() + ".jpg";
+        imageArry.push(imagePath);
+        startNum++;
+      }
+      index = -1;
+      getNext();
+      return true;
+    }
+  }
+
+  function randomize(dataArray) {
+    for (var i = dataArray.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = dataArray[i];
+      dataArray[i] = dataArray[j];
+      dataArray[j] = tmp;
+    }
+    return dataArray;
+  }
+
+  function getPrev() {
+    index--;
+    if (index < 0) {
+      index = imageArry.length - 1;
+    }
+    imageElement.setAttribute("src", imageArry[index]);
+  }
+
+  function getNext() {
+    index++;
+    if (index > imageArry.length - 1) {
+      index = 0;
+    }
+    imageElement.setAttribute("src", imageArry[index]);
+  }
+
+  function startSlide() {
+    var intervalID = setInterval("getNext()", intervalInMilliseconds);
+    return intervalID;
+  }
+
+  function startRan() {
+    var intervalID = setInterval("getNext()", intervalInMilliseconds);
+    return intervalID;
+  }
+
+  function stopShow(intervalID) {
+    window.clearInterval(intervalID);
+  }
+
+  function resetAll() {
+    document.getElementById("directory").value = "umcp/";
+    document.getElementById("name").value = "college";
+    document.getElementById("start").value = "1";
+    document.getElementById("end").value = "1";
+  }
+  </script>
+
+  <fieldset style="width: 40em; margin-left: auto; margin-right: auto;">
+    <h1>
+      Viewer
+    </h1>
+    <img id="myImage" src="InitialImage.jpg" alt="UMD image" width="500" height="300" />
+    <hr />
+    <label for="directory">Photos' Folder:</label> <input type="text" id="directory" value="umcp/" />
+    <br /><br />
+    <label for="name">Common Name:</label> <input type="text" id="name" value="college" />
+    <br /><br />
+    <label for="start">Start Photo Number:</label> <input type="text" id="start" value="1" />
+    &nbsp;&nbsp;&nbsp;
+    <label for="end">End Photo Number:</label> <input type="text" id="end" value="1" />
+    <br /><br />
+    <input type="button" id="slideshow" value="Slide Show" />
+    &nbsp;
+    <input type="button" id="random" value="Random Slide Show" />
+    &nbsp;
+    <input type="button" id="previous" value="Previous Slide" />
+    &nbsp;
+    <input type="button" id="next" value="Next Slide" />
+    <br /><br />
+    <input type="button" id="autoslideshow" value="Auto Slide Show" />
+    &nbsp;
+    <input type="button" id="autorandom" value="Auto Random Slide Show" />
+    &nbsp;
+    <input type="button" id="stopauto" value="Stop Auto Show" />
+    <br /><br />
+    <input type="reset" id="rest" value="Reset" />
+  </fieldset>
+
+</body>
+</html>

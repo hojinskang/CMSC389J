@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>CMSC389J Data Validation</title>
+  <link rel="stylesheet" href="research.css" type="text/css"/>
+  <script src="research.js"></script>
+</head>
+
+<body>
+  <div>
+    <h1>Research Form</h1>
+    <form action="researchProcessing.php" method="get">
+      <fieldset>
+        <legend>General Information</legend>
+
+        Firstname: <input type="text" name="firstname" required />
+        &nbsp;&nbsp;&nbsp;
+        Lastname: <input type="text" name="lastname" required />
+        <br /><br />
+        Phone:
+        <input type="text" name="phoneFirstPart" id="phone1" maxlength="3" size="3" required />
+        -
+        <input type="text" name="phoneSecondPart" id="phone2" maxlength="3" size="3" required />
+        -
+        <input type="text" name="phoneThirdPart" id="phone3" maxlength="4" size="4" required />
+        &nbsp;&nbsp;&nbsp;
+        Email: <input type="email" name="email" required />
+      </fieldset>
+      <br />
+      <fieldset>
+        <legend>Research Study Data</legend>
+
+        <fieldset>
+          <legend>Age/Height/Weight</legend>
+          Age: <input type="number" name="age" min="1" max="125" />
+          &nbsp;&nbsp;&nbsp;
+          Height: <input type="number" name="heightFeet" min="2" max="7" /> <em>feet</em>
+          <input type="number" name="heightInches" min="0" max="12" /> <em>inches</em>
+          &nbsp;&nbsp;&nbsp;
+          Weight: <input type="number" name="weight" min="1" max="600" />
+        </fieldset>
+        <br />
+        <fieldset>
+          <legend>Conditions</legend>
+
+          Which of the following conditions are present in your family? (Check all that apply)
+          <br />
+          <input type="checkbox" name="highBloodPressure" value="High Blood Pressure" id="cond1" /> High Blood Pressure
+          &nbsp;
+          <input type="checkbox" name="diabetes" value="Diabetes" id="cond2" /> Diabetes
+          &nbsp;
+          <input type="checkbox" name="glaucoma" value="Glaucoma" id="cond3" /> Glaucoma
+          &nbsp;
+          <input type="checkbox" name="asthma" value="Asthma" id="cond4" /> Asthma
+          &nbsp;
+          <input type="checkbox" name="none" value="None" id="cond0" /> None
+        </fieldset>
+        <br />
+        <fieldset>
+          <legend>Time Period</legend>
+
+          How long have you experienced any of the above conditions?
+          <br />
+          <input type="radio" name="period" value="Never" /> Never
+          &nbsp;
+          <input type="radio" name="period" value="Less than a year" /> Less than a year
+          &nbsp;
+          <input type="radio" name="period" value="One to two years" /> One to two years
+          &nbsp;
+          <input type="radio" name="period" value="More than two years" /> More than two years
+        </fieldset>
+        <br />
+        <fieldset>
+          <legend>Study Information</legend>
+
+          Which study are you taking part of?
+          <select name="studyType">
+            <option value="Long Term" selected>Long Term</option>
+            <option value="Short Term">Short Term</option>
+          </select>
+          &nbsp;&nbsp;&nbsp;
+          Assigned Study Id:
+          <input type="text" name="firstFourDigits" id="studyId1" maxlength="4" size="4" placeholder="A777" required />
+          -
+          <input type="text" name="secondFourDigits" id="studyId2" maxlength="4" size="4" placeholder="B888" required />
+        </fieldset>
+        <br />
+        <fieldset>
+          <legend>Additional Information (Comments)</legend>
+          <textarea rows="7" cols="86" name="comments"></textarea>
+        </fieldset>
+      </fieldset>
+      <br />
+      <fieldset>
+        <input type="reset" value="Clear Form" />
+        <input type="submit" id="submitInfo" value="Submit Information" />
+      </fieldset>
+    </form>
+    <h2>CMSC Research Institute</h2>
+  </div>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <title>CMSC389J P1</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+  <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.js"></script>
+
+</head>
+
+<body data-theme="b" onload="onPageLoad()">
+
+  <div data-role="page" data-theme="a">
+    <div data-icon="home" data-role="header" position="fixed">
+      <a href="#" data-role="button" data-icon="home"></a>
+      <header>
+        <h1>Taco</h1>
+      </header>
+    </div>
+
+    <!-- Page Content -->
+    <div data-role="content">
+
+      <!-- Collapsible area -->
+      <div data-role="collapsible-set">
+
+        <div data-role="collapsible">
+          <h2>Description</h2>
+          <article>
+            <section>
+              <a href="http://www.cs.umd.edu/class/winter2016/cmsc389J/index.shtml">
+                <img src="images/taco.jpg" alt="taco image" width="426" height="344"/>
+              </a>
+            </section>
+            <section>
+              <p>
+                A <strong>taco</strong> is a traditional Mexican dish composed of a corn or wheat tortilla folded or rolled around a filling.
+              </p>
+            </section>
+          </article>
+        </div>
+
+        <!-- Position Info -->
+        <div data-role="collapsible" data-collapsed="true">
+          <h2>Nutrition Facts</h2>
+
+          <table class="round">
+            <thead>
+              <tr>
+                <td colspan="2">
+                  <strong>Amount Per</strong> 1 each taco (69g)
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <strong>Calories</strong> 156
+                </td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="2" style="text-align: right">
+                  <strong>% Daily Value*</strong>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Total Fat</strong> 9 g
+                </td>
+                <td style="text-align: right">
+                  13%
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  &nbsp;&nbsp;&nbsp;Saturated fat 3 g
+                </td>
+                <td rowspan="4" style="text-align: right; vertical-align: top;">15%</td>
+              </tr>
+              <tr>
+                <td>
+                  &nbsp;&nbsp;&nbsp;Polyunsaturated fat 2.1 g
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  &nbsp;&nbsp;&nbsp;Monounsaturated fat 3 g
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  &nbsp;&nbsp;&nbsp;Trans fat 0.3 g
+                </td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="2"><hr/></td>
+              </tr>
+              <tr>
+                <td colspan="2">*Percent Daily Values based on 2000 calorie diet</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <!-- Contact Info -->
+        <div data-role="collapsible">
+          <h2>Ingredients</h2>
+
+          <ul id="square" class="round">
+            <li><strong>1</strong> tablespoon olive oil</li>
+            <li><strong>1</strong> onion, chopped</li>
+            <li><strong>2</strong> cloves garlic, chopped</li>
+            <li><strong>1</strong> pound ground beef</li>
+            <li><strong>1/2</strong> cup chopped flat-leaf parsley</li>
+            <li><strong>1/4</strong> cup tomato paste</li>
+            <li>kosher salt and black pepper</li>
+            <li><strong>12</strong> corn tortillas, warmed</li>
+            <li><strong>1/2</strong> head small green cabbage, shredded</li>
+            <li><strong>2</strong> medium tomatoes, shopped</li>
+            <li><strong>1</strong> cup fresh cilantro sprigs</li>
+          </ul>
+        </div>
+
+        <!-- Research Interests -->
+        <div data-role="collapsible">
+          <h2>Directions</h2>
+
+          <ol id="lower" class="round">
+            <li>Heat the oil in a large skillet over medium-high heat. Add the onion and cook until beginning to soften, 3 to 4 minutes.</li>
+            <li>Add the garlic and cook for 1 minute.</li>
+            <li>Stir in beef, parsley, tomato paste, ½ teaspoon salt, and ¼ teaspoon pepper. Cook, breaking up with a wooden spoon, until browned, 8 to 10 minutes.</li>
+            <li>Fill each tortilla with the meat mixture, cabbage, tomatoes, and cilantro.</li>
+            <ul>
+              <li>Serve with the hot sauce, if desired.</li>
+            </ul>
+          </ol>
+        </div>
+
+      </div> <!-- End of Collapsible area-->
+
+    </div>
+
+    <div data-role="footer" position="fixed">
+      <footer>&copy; 2016 by HSK</footer>
+    </div>
+  </div>
+
+</body>
+</html>
